@@ -55,75 +55,63 @@ export default function Home() {
   return (
     <div className="bg-[#0A0A0A] text-white selection:bg-virx-cyan selection:text-white">
       
-      {/* 1. THE HERO SECTION (Split Layout) */}
-      <section ref={heroRef} className="relative min-h-screen flex items-center justify-center pt-32 lg:pt-24 pb-12 overflow-hidden">
+      {/* 1. THE HERO SECTION (Full Background Layout) */}
+      <section 
+        ref={heroRef} 
+        className="relative min-h-screen flex items-center justify-center pt-32 pb-12 overflow-hidden bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: "url('/hero-bg-v2.jpg')" }}
+      >
+        {/* Overlay Oscuro */}
+        <div className="absolute inset-0 bg-black/60 z-0"></div>
+
         <motion.div 
-          className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:grid lg:grid-cols-2 lg:gap-12 lg:items-center"
+          className="w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center text-center relative z-10"
           style={{ opacity: heroOpacity, scale: heroScale }}
         >
-          {/* Bloque 1: Texto (Título y Descripción) */}
-          <div className="flex flex-col items-center lg:items-start text-center lg:text-left z-20 order-1 lg:col-start-1 lg:row-start-1">
-            <motion.h1 
-              className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-tighter text-white mb-6 leading-[1.1]"
-              initial="hidden"
-              animate="visible"
-              variants={{
-                visible: { transition: { staggerChildren: 0.1 } }
-              }}
-            >
-              {titleWords.map((word, i) => (
-                <motion.span 
-                  key={i} 
-                  className="inline-block mr-2 sm:mr-3"
-                  variants={{
-                    hidden: { opacity: 0, y: 20 },
-                    visible: { opacity: 1, y: 0 }
-                  }}
-                >
-                  {word}
-                </motion.span>
-              ))}
-            </motion.h1>
-
-            <motion.p 
-              className="text-lg sm:text-xl md:text-2xl font-medium text-white/70 tracking-tight leading-relaxed mb-6 lg:mb-8 max-w-lg mx-auto lg:mx-0"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8, duration: 1 }}
-            >
-              VIRX es un pluviómetro inteligente diseñado para medir la lluvia directamente en tu campo y llevar el dato hasta vos.
-            </motion.p>
-          </div>
-
-          {/* Bloque 2: Imagen del Producto */}
-          <motion.div
-            className="relative z-10 w-full max-w-[280px] sm:max-w-md mx-auto lg:max-w-full h-auto lg:h-[70vh] flex items-center justify-center order-2 lg:col-start-2 lg:row-span-2 my-8 lg:my-0"
-            initial={{ opacity: 0, scale: 0.8, y: 50 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ duration: 1.2, type: "spring", bounce: 0.3 }}
+          {/* Texto (Título y Descripción) */}
+          <motion.h1 
+            className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-tighter text-white mb-6 leading-[1.1]"
+            initial="hidden"
+            animate="visible"
+            variants={{
+              visible: { transition: { staggerChildren: 0.1 } }
+            }}
           >
-            <div className="absolute inset-0 bg-virx-cyan/10 blur-[120px] lg:blur-[150px] rounded-full pointer-events-none"></div>
-            <motion.img 
-              src="/producto.png" 
-              alt="VIRX Pluviómetro" 
-              className="w-full h-full object-contain drop-shadow-[0_0_50px_rgba(0,169,204,0.3)]"
-              animate={{ y: [-10, 10, -10] }}
-              transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
-            />
-          </motion.div>
+            {titleWords.map((word, i) => (
+              <motion.span 
+                key={i} 
+                className="inline-block mr-2 sm:mr-3"
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: { opacity: 1, y: 0 }
+                }}
+              >
+                {word}
+              </motion.span>
+            ))}
+          </motion.h1>
 
-          {/* Bloque 3: Botones (Abajo en móvil, bajo el texto en PC) */}
+          <motion.p 
+            className="text-lg sm:text-xl md:text-2xl font-medium text-white/90 tracking-tight leading-relaxed mb-10 max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8, duration: 1 }}
+          >
+            VIRX es un pluviómetro inteligente diseñado para medir la lluvia directamente en tu campo y llevar el dato hasta vos.
+          </motion.p>
+
+          {/* Botones */}
           <motion.div 
-            className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 w-full sm:w-auto order-3 lg:col-start-1 lg:row-start-2 lg:self-start z-20"
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1, duration: 1 }}
           >
-            <Link href="#producto" className="w-full sm:w-auto group relative px-8 py-4 bg-white/5 backdrop-blur-md border border-white/10 rounded-full overflow-hidden transition-all hover:border-virx-cyan hover:scale-105 text-center">
-              <div className="absolute inset-0 bg-virx-cyan/20 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out"></div>
+            <Link href="/#producto" className="w-full sm:w-auto group relative px-8 py-4 bg-white/10 backdrop-blur-md border border-white/20 rounded-full overflow-hidden transition-all hover:border-virx-cyan hover:scale-105 text-center shadow-lg shadow-black/20">
+              <div className="absolute inset-0 bg-virx-cyan/30 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out"></div>
               <span className="relative font-bold tracking-widest text-sm text-white group-hover:text-virx-cyan uppercase">Conocé VIRX</span>
             </Link>
-            <Link href="#contacto" className="w-full sm:w-auto px-8 py-4 text-center text-sm font-bold tracking-widest text-white/50 hover:text-white uppercase transition-colors flex items-center justify-center">
+            <Link href="/#contacto" className="w-full sm:w-auto px-8 py-4 text-center text-sm font-bold tracking-widest text-white/80 hover:text-white uppercase transition-colors flex items-center justify-center">
               Quiero Información
             </Link>
           </motion.div>

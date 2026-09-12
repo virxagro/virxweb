@@ -11,12 +11,13 @@ export default function Header() {
             </Link>
           </div>
           <nav className="hidden md:flex space-x-10">
-            <Link href="#producto" className="text-white/70 hover:text-[#00A9CC] transition-colors text-xs font-bold tracking-widest uppercase">Producto</Link>
-            <Link href="#como-funciona" className="text-white/70 hover:text-[#00A9CC] transition-colors text-xs font-bold tracking-widest uppercase">Cómo Funciona</Link>
-            <Link href="#nosotros" className="text-white/70 hover:text-[#00A9CC] transition-colors text-xs font-bold tracking-widest uppercase">Nosotros</Link>
+            <Link href="/#producto" className="text-white/70 hover:text-[#00A9CC] transition-colors text-xs font-bold tracking-widest uppercase">Producto</Link>
+            <Link href="/#como-funciona" className="text-white/70 hover:text-[#00A9CC] transition-colors text-xs font-bold tracking-widest uppercase">Cómo Funciona</Link>
+            <Link href="/#nosotros" className="text-white/70 hover:text-[#00A9CC] transition-colors text-xs font-bold tracking-widest uppercase">Nosotros</Link>
+            <Link href="/blog" className="text-white/70 hover:text-[#00A9CC] transition-colors text-xs font-bold tracking-widest uppercase">Blog</Link>
           </nav>
           <div className="hidden md:flex items-center space-x-4">
-            <Link href="#contacto" className="bg-white/5 border border-white/10 backdrop-blur-md text-white px-6 py-2 rounded-full text-xs font-bold tracking-widest uppercase transition-all hover:border-[#00A9CC] hover:text-[#00A9CC]">
+            <Link href="/#contacto" className="bg-white/5 border border-white/10 backdrop-blur-md text-white px-6 py-2 rounded-full text-xs font-bold tracking-widest uppercase transition-all hover:border-[#00A9CC] hover:text-[#00A9CC]">
               CONOCÉ VIRX
             </Link>
           </div>

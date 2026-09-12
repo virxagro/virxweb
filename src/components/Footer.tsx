@@ -16,16 +16,17 @@ export default function Footer() {
           <div>
             <h3 className="text-sm font-extrabold text-[#FFFFFF] tracking-wide mb-5 uppercase">Navegación</h3>
             <ul className="space-y-3">
-              <li><Link href="#producto" className="text-sm font-medium text-[#9A9A9A] hover:text-[#00A9CC] transition-colors">Producto</Link></li>
-              <li><Link href="#como-funciona" className="text-sm font-medium text-[#9A9A9A] hover:text-[#00A9CC] transition-colors">Cómo Funciona</Link></li>
-              <li><Link href="#nosotros" className="text-sm font-medium text-[#9A9A9A] hover:text-[#00A9CC] transition-colors">Nosotros</Link></li>
+              <li><Link href="/#producto" className="text-sm font-medium text-[#9A9A9A] hover:text-[#00A9CC] transition-colors">Producto</Link></li>
+              <li><Link href="/#como-funciona" className="text-sm font-medium text-[#9A9A9A] hover:text-[#00A9CC] transition-colors">Cómo Funciona</Link></li>
+              <li><Link href="/#nosotros" className="text-sm font-medium text-[#9A9A9A] hover:text-[#00A9CC] transition-colors">Nosotros</Link></li>
+              <li><Link href="/blog" className="text-sm font-medium text-[#9A9A9A] hover:text-[#00A9CC] transition-colors">Blog</Link></li>
             </ul>
           </div>
           <div>
             <h3 className="text-sm font-extrabold text-[#FFFFFF] tracking-wide mb-5 uppercase">Soporte</h3>
             <ul className="space-y-3">
-              <li><Link href="#faq" className="text-sm font-medium text-[#9A9A9A] hover:text-[#00A9CC] transition-colors">Preguntas Frecuentes</Link></li>
-              <li><Link href="#contacto" className="text-sm font-medium text-[#9A9A9A] hover:text-[#00A9CC] transition-colors">Contacto</Link></li>
+              <li><Link href="/#faq" className="text-sm font-medium text-[#9A9A9A] hover:text-[#00A9CC] transition-colors">Preguntas Frecuentes</Link></li>
+              <li><Link href="/#contacto" className="text-sm font-medium text-[#9A9A9A] hover:text-[#00A9CC] transition-colors">Contacto</Link></li>
             </ul>
           </div>
           <div>
