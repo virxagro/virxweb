@@ -58,7 +58,7 @@ export default function Home() {
       {/* 1. THE HERO SECTION (Full Background Layout) */}
       <section 
         ref={heroRef} 
-        className="relative min-h-screen flex items-center justify-center pt-32 pb-12 overflow-hidden bg-cover bg-[position:85%_center] lg:bg-center bg-no-repeat"
+        className="relative min-h-screen flex items-center justify-center pt-32 pb-12 overflow-hidden bg-cover bg-[position:100%_center] lg:bg-center bg-no-repeat"
         style={{ backgroundImage: "url('/hero-bg-v2.jpg')" }}
       >
         {/* Overlay Oscuro */}
