@@ -33,13 +33,18 @@ export default function Footer() {
             <h3 className="text-sm font-extrabold text-[#FFFFFF] tracking-wide mb-5 uppercase">Contacto</h3>
             <ul className="space-y-3">
               <li className="text-sm font-medium text-[#9A9A9A]">
-                <a href="mailto:contacto@virx.com.ar" className="hover:text-[#00A9CC] transition-colors flex items-center">
-                  contacto@virx.com.ar
+                <a href="mailto:virxagro@gmail.com" className="hover:text-[#00A9CC] transition-colors flex items-center">
+                  virxagro@gmail.com
                 </a>
               </li>
               <li className="text-sm font-medium text-[#9A9A9A]">
-                <a href="https://wa.me/5492494000000" target="_blank" rel="noopener noreferrer" className="hover:text-[#00A9CC] transition-colors flex items-center">
-                  +54 9 249 400-0000
+                <a href="https://wa.me/5492983384906" target="_blank" rel="noopener noreferrer" className="hover:text-[#00A9CC] transition-colors flex items-center">
+                  +54 9 2983 38-4906
+                </a>
+              </li>
+              <li className="text-sm font-medium text-[#9A9A9A]">
+                <a href="https://wa.me/5492262591674" target="_blank" rel="noopener noreferrer" className="hover:text-[#00A9CC] transition-colors flex items-center">
+                  +54 9 2262 59-1674
                 </a>
               </li>
             </ul>

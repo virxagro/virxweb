@@ -6,12 +6,31 @@ import { motion } from "framer-motion";
 export default function LeadForm() {
   const [status, setStatus] = useState<"idle" | "submitting" | "success">("idle");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus("submitting");
-    setTimeout(() => {
-      setStatus("success");
-    }, 1500);
+    
+    const formData = new FormData(e.currentTarget);
+    
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/virxagro@gmail.com", {
+        method: "POST",
+        headers: { 
+          'Accept': 'application/json'
+        },
+        body: formData
+      });
+      
+      if (response.ok) {
+        setStatus("success");
+      } else {
+        alert("Hubo un problema al enviar el formulario. Por favor, intenta de nuevo.");
+        setStatus("idle");
+      }
+    } catch (error) {
+      alert("Hubo un problema al enviar el formulario. Por favor, intenta de nuevo.");
+      setStatus("idle");
+    }
   };
 
   if (status === "success") {
@@ -34,6 +53,11 @@ export default function LeadForm() {
     <form onSubmit={handleSubmit} className="bg-white/5 backdrop-blur-xl p-10 md:p-16 border border-white/10 rounded-3xl shadow-2xl relative overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-virx-cyan to-transparent opacity-50"></div>
       
+      {/* Evitar redirección o captcha feo si no es AJAX, aunque lo estamos mandando por AJAX */}
+      <input type="hidden" name="_captcha" value="false" />
+      <input type="hidden" name="_subject" value="¡Nuevo lead desde la web de VIRX!" />
+      <input type="text" name="_honey" style={{ display: 'none' }} />
+
       <div className="space-y-8 mt-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>
@@ -41,6 +65,7 @@ export default function LeadForm() {
             <input
               type="text"
               id="name"
+              name="Nombre"
               required
               className="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-virx-cyan focus:bg-white/10 transition-all text-white font-medium"
               placeholder="Ej. Juan Pérez"
@@ -51,6 +76,7 @@ export default function LeadForm() {
             <input
               type="tel"
               id="phone"
+              name="WhatsApp"
               required
               className="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-virx-cyan focus:bg-white/10 transition-all text-white font-medium"
               placeholder="+54 9 ..."
@@ -63,6 +89,7 @@ export default function LeadForm() {
           <input
             type="email"
             id="email"
+            name="Email"
             required
             className="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-virx-cyan focus:bg-white/10 transition-all text-white font-medium"
             placeholder="juan@ejemplo.com"
@@ -75,6 +102,7 @@ export default function LeadForm() {
             <input
               type="text"
               id="location"
+              name="Localidad"
               required
               className="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-virx-cyan focus:bg-white/10 transition-all text-white font-medium"
               placeholder="Ej. Tandil"
@@ -85,6 +113,7 @@ export default function LeadForm() {
             <input
               type="text"
               id="province"
+              name="Provincia"
               required
               className="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-virx-cyan focus:bg-white/10 transition-all text-white font-medium"
               placeholder="Buenos Aires"
@@ -97,11 +126,12 @@ export default function LeadForm() {
             <label htmlFor="hasField" className="block text-xs font-bold text-white/50 mb-3 uppercase tracking-widest">¿Tenés campo?</label>
             <select
               id="hasField"
+              name="Tiene_Campo"
               className="w-full px-5 py-4 bg-[#1E1E24] border border-white/10 rounded-xl focus:outline-none focus:border-virx-cyan transition-all text-white font-medium appearance-none"
             >
-              <option value="si">Sí, soy productor/dueño</option>
-              <option value="no">No, asesoro/presto servicios</option>
-              <option value="otro">Otro</option>
+              <option value="Si, dueño/productor">Sí, soy productor/dueño</option>
+              <option value="No, asesor/servicios">No, asesoro/presto servicios</option>
+              <option value="Otro">Otro</option>
             </select>
           </div>
           <div>
@@ -109,6 +139,7 @@ export default function LeadForm() {
             <input
               type="text"
               id="hectares"
+              name="Hectareas"
               className="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-virx-cyan focus:bg-white/10 transition-all text-white font-medium"
               placeholder="Ej. 500 ha"
             />
@@ -119,6 +150,7 @@ export default function LeadForm() {
           <label htmlFor="message" className="block text-xs font-bold text-white/50 mb-3 uppercase tracking-widest">Mensaje</label>
           <textarea
             id="message"
+            name="Mensaje"
             rows={4}
             className="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-virx-cyan focus:bg-white/10 transition-all text-white font-medium resize-none"
             placeholder="Dejanos tu consulta o comentario..."
