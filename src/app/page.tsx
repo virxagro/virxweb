@@ -4,6 +4,7 @@ import Link from "next/link";
 import LeadForm from "@/components/LeadForm";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useState, useRef } from "react";
+import { Clock, Fuel } from "lucide-react";
 
 const FAQItem = ({ question, answer }: { question: string, answer: string }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -118,26 +119,62 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* 2. EL PROBLEMA (Tipografía Inmersiva Apple Style) */}
-      <section className="py-32 min-h-[60vh] flex flex-col justify-center items-center relative border-t border-white/10 bg-[#0A0A0A] overflow-hidden">
+      {/* 2. EL PROBLEMA (Pain Points Grid) */}
+      <section className="py-32 relative border-t border-white/10 bg-[#0A0A0A] overflow-hidden">
         {/* Resplandor radial */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-[#00A9CC]/10 blur-[120px] rounded-full pointer-events-none"></div>
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[#00A9CC]/5 blur-[120px] rounded-full pointer-events-none"></div>
         
-        <div className="max-w-4xl mx-auto px-6 relative z-10 flex flex-col items-center">
+        <div className="max-w-5xl mx-auto px-6 relative z-10 flex flex-col">
           <motion.div
-            initial={{ opacity: 0, y: 40, filter: "blur(10px)" }}
-            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-10%" }}
-            transition={{ duration: 1, ease: "easeOut" }}
-            className="flex flex-col items-center"
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="flex flex-col items-center text-center"
           >
-            <p className="text-sm md:text-base font-semibold text-[#00A9CC] uppercase tracking-[0.2em] mb-6 text-center max-w-2xl">
-              DEJAR DE VIAJAR SOLO PARA MIRAR UN TUBO DE PLÁSTICO.
+            <p className="text-sm font-semibold text-cyan-500 uppercase tracking-widest mb-4">
+              DEJAR DE VIAJAR SOLO PARA MIRAR UN TUBO DE PLÁSTICO
             </p>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-center text-transparent bg-clip-text bg-gradient-to-b from-white via-gray-200 to-gray-500 max-w-4xl mx-auto tracking-tight">
-              El problema no es medir la lluvia. El problema es el <span className="text-[#00A9CC] [-webkit-text-fill-color:#00A9CC]">tiempo</span> y el <span className="text-[#00A9CC] [-webkit-text-fill-color:#00A9CC]">combustible</span> que gastás yendo hasta el lote a revisarla.
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-16 tracking-tight">
+              El problema no es medir la lluvia.
             </h2>
           </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Tarjeta 1 */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-10%" }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="bg-gray-950 border border-gray-800 p-10 rounded-2xl transition-all duration-300 hover:border-cyan-500/50 hover:-translate-y-1 shadow-xl"
+            >
+              <div className="bg-cyan-500/10 p-3 rounded-xl w-fit">
+                <Clock className="w-10 h-10 text-cyan-400" />
+              </div>
+              <h3 className="text-white text-2xl font-semibold mt-8 mb-4">Pérdida de Tiempo</h3>
+              <p className="text-gray-400 text-lg leading-relaxed">
+                Las horas que invertís viajando por caminos de tierra hasta el lote para revisar un dato que ya podrías tener en tu celular.
+              </p>
+            </motion.div>
+
+            {/* Tarjeta 2 */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-10%" }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="bg-gray-950 border border-gray-800 p-10 rounded-2xl transition-all duration-300 hover:border-cyan-500/50 hover:-translate-y-1 shadow-xl"
+            >
+              <div className="bg-cyan-500/10 p-3 rounded-xl w-fit">
+                <Fuel className="w-10 h-10 text-cyan-400" />
+              </div>
+              <h3 className="text-white text-2xl font-semibold mt-8 mb-4">Gasto en Combustible</h3>
+              <p className="text-gray-400 text-lg leading-relaxed">
+                El costo oculto en gasoil y desgaste de la camioneta por cada viaje innecesario a revisar un pluviómetro manual.
+              </p>
+            </motion.div>
+          </div>
         </div>
       </section>
 
