@@ -1,6 +1,5 @@
 import { Metadata } from 'next';
-import Link from 'next/link';
-import { blogPosts } from '@/lib/blogData';
+import BlogSection from '@/components/BlogSection';
 
 export const metadata: Metadata = {
   title: 'Blog VIRX | Monitoreo y Medición de Lluvia',
@@ -22,40 +21,8 @@ export default function BlogIndex() {
           </p>
         </div>
 
-        {/* Grid de Artículos */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {blogPosts.map((post) => (
-            <Link key={post.slug} href={`/blog/${post.slug}`} className="group flex flex-col bg-white/5 border border-white/10 rounded-3xl overflow-hidden hover:border-virx-cyan/50 transition-colors">
-              <div className="h-56 w-full overflow-hidden bg-[#1E1E24] relative">
-                {post.imageUrl && (
-                  <img 
-                    src={post.imageUrl} 
-                    alt={post.imageAlt || post.title} 
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out opacity-80 group-hover:opacity-100" 
-                  />
-                )}
-              </div>
-              <div className="p-8 flex flex-col flex-grow justify-between">
-                <div>
-                  <span className="text-xs font-bold tracking-widest text-virx-cyan uppercase mb-4 block">
-                    {post.category}
-                  </span>
-                  <h2 className="text-2xl font-extrabold text-white leading-tight mb-4 group-hover:text-virx-cyan transition-colors">
-                    {post.title}
-                  </h2>
-                </div>
-                <div className="mt-8 flex items-center justify-between border-t border-white/10 pt-4">
-                  <span className="text-sm font-medium text-white/40">
-                    {new Date(post.publishedAt + 'T00:00:00').toLocaleDateString('es-AR', { month: 'long', day: 'numeric', year: 'numeric' })}
-                  </span>
-                  <span className="text-sm font-bold text-white/40 group-hover:text-virx-cyan transition-colors">
-                    Leer más →
-                  </span>
-                </div>
-              </div>
-            </Link>
-          ))}
-        </div>
+        {/* Grid de Artículos Refactorizado */}
+        <BlogSection />
 
       </div>
     </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import { CloudRain, Cpu, BarChart3, LineChart, Droplets, History, LucideIcon } from 'lucide-react';
 
 export type BlogPost = {
   slug: string;
@@ -14,6 +15,7 @@ export type BlogPost = {
   content: React.ReactNode;
   imageUrl?: string;
   imageAlt?: string;
+  icon: LucideIcon;
 };
 
 // Componente CTA reutilizable para los artículos
@@ -45,6 +47,7 @@ export const blogPosts: BlogPost[] = [
     keywords: ['cómo medir la lluvia', 'milímetros de lluvia', 'medir lluvia', 'medición de lluvia', 'cuántos milímetros llovieron'],
     imageUrl: '/hero-bg-v2.jpg',
     imageAlt: 'Campo bajo la lluvia donde se necesita medir milímetros',
+    icon: CloudRain,
     content: (
       <>
         <p>Cuando hablamos de lluvia, una de las formas más comunes de expresar cuánto llovió es en milímetros (mm). Pero ¿qué significa realmente ese número?</p>
@@ -100,6 +103,7 @@ export const blogPosts: BlogPost[] = [
     keywords: ['qué es un pluviómetro', 'cómo funciona un pluviómetro', 'pluviómetro', 'medir lluvia', 'instrumento para medir lluvia'],
     imageUrl: '/hero-product-new.png',
     imageAlt: 'Pluviómetro inteligente instalado en el campo',
+    icon: Cpu,
     content: (
       <>
         <p>Un pluviómetro es un instrumento utilizado para medir la cantidad de lluvia que cae en un determinado lugar durante un período de tiempo.</p>
@@ -144,6 +148,7 @@ export const blogPosts: BlogPost[] = [
     keywords: ['1 mm de lluvia', 'cuánto es 1 mm de lluvia', 'milímetros de lluvia', 'precipitación', 'lluvia en el campo'],
     imageUrl: '/scroll-campo.jpg',
     imageAlt: 'Gotas de lluvia sobre un campo agrícola',
+    icon: Droplets,
     content: (
       <>
         <p>Cuando escuchamos que “llovieron 10, 20 o 50 milímetros”, estamos hablando de la cantidad de agua que cayó sobre una superficie. Pero ¿cuánta agua representa realmente un milímetro?</p>
@@ -207,6 +212,7 @@ export const blogPosts: BlogPost[] = [
     keywords: ['pluviómetro manual', 'pluviómetro inteligente', 'diferencia pluviómetros'],
     imageUrl: '/producto-completo.png',
     imageAlt: 'Comparación visual de pluviómetros',
+    icon: BarChart3,
     content: (
       <>
         <p>El objetivo de cualquier pluviómetro es el mismo: medir la lluvia. La diferencia está principalmente en cómo se registra, consulta y transmite ese dato.</p>
@@ -267,6 +273,7 @@ export const blogPosts: BlogPost[] = [
     keywords: ['importancia lluvia campo', 'medición agronomía', 'precipitación campo'],
     imageUrl: '/hero-campo.jpg',
     imageAlt: 'Campo productivo beneficiado por la lluvia',
+    icon: LineChart,
     content: (
       <>
         <p>La lluvia forma parte de la actividad diaria de cualquier establecimiento agropecuario. Pero una pregunta muy simple puede ser difícil de responder con precisión cuando no estamos en el lugar: ¿Cuántos milímetros llovieron?</p>
@@ -312,6 +319,7 @@ export const blogPosts: BlogPost[] = [
     keywords: ['historial de lluvias', 'registrar lluvias', 'precipitaciones históricas'],
     imageUrl: '/app-mockup.jpg',
     imageAlt: 'Usuario consultando el historial en su celular',
+    icon: History,
     content: (
       <>
         <p>Saber cuánto llovió hoy es útil. Pero poder saber cuánto llovió hoy, la semana pasada o durante los últimos meses permite tener una visión mucho más completa. Para eso es necesario contar con un historial de precipitaciones.</p>
