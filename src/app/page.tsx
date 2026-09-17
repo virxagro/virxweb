@@ -132,10 +132,10 @@ export default function Home() {
             className="flex flex-col items-center"
           >
             <p className="text-sm md:text-base font-semibold text-[#00A9CC] uppercase tracking-[0.2em] mb-6 text-center max-w-2xl">
-              Para conocer la cantidad de lluvia caída, muchas veces hay que estar presente.
+              DEJAR DE VIAJAR SOLO PARA MIRAR UN TUBO DE PLÁSTICO.
             </p>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-center text-transparent bg-clip-text bg-gradient-to-b from-white via-gray-200 to-gray-500 max-w-4xl mx-auto tracking-tight">
-              El problema no es medir la lluvia. El problema es no tener el dato cuando lo necesitás.
+              El problema no es medir la lluvia. El problema es el <span className="text-[#00A9CC] [-webkit-text-fill-color:#00A9CC]">tiempo</span> y el <span className="text-[#00A9CC] [-webkit-text-fill-color:#00A9CC]">combustible</span> que gastás yendo hasta el lote a revisarla.
             </h2>
           </motion.div>
         </div>
