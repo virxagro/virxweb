@@ -7,7 +7,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           <div className="col-span-1 md:col-span-1 flex flex-col items-start">
             <Link href="/" className="block mb-6">
-              <img src="/logo.png" alt="VIRX Logo" className="h-12 w-auto object-contain drop-shadow-md" />
+              <img src="/logo-virx.png" alt="VIRX Logo" className="h-12 w-auto object-contain drop-shadow-md" />
             </Link>
             <p className="text-sm text-[#9A9A9A] font-medium leading-relaxed">
               La lluvia de tu campo, en tu celular. Pluviómetro inteligente automático diseñado y fabricado en Argentina.

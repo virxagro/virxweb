@@ -15,7 +15,7 @@ export default function Header() {
         <div className="flex justify-between items-center h-20">
           <div className="flex-shrink-0 flex items-center">
             <Link href="/" className="block" onClick={closeMenu}>
-              <img src="/logo.png" alt="VIRX Logo" className="h-8 md:h-10 w-auto object-contain" />
+              <img src="/logo-virx.png" alt="VIRX Logo" className="h-8 md:h-10 w-auto object-contain" />
             </Link>
           </div>
           
